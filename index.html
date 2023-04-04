@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/card-deck/css/cardstarter.css">
+    <link rel="stylesheet" href="/card-deck/css/cardstarter.min.css">
     <title>BlackJack</title>
 </head>
 
 <body>
-    <h1>Blackjack</h1>
+    <header><h1>Blackjack</h1></header>
     
-    <header>Dealer's Hand</header>
-    <header>Your Hand</header>
+    <section>
+        <div>Dealer's Hand:</div>
+        <div id="dealerCards"> <!--dealer cards will be .pushed() into here-->
+            <img id="backImg" src="/card-deck/images/backs/red.svg">
+        </div>
+    </section>   
 
-    <button>PLAY</button>
-    <button>HIT</button>
-    <button>STAY</button>
+    <section>
+        <div>Your Hand:</div>
+        <div id="yourCards"><!--player cards will be .pushed() into here-->
+            <img src="/card-deck/images/clubs/clubs-K.svg">
+     </section>
+
+    <section id="buttons">  
+        <button id="stay" class="actionBtns">STAY</button>
+        <button id="hit" class="actionBtns">HIT</button>
+        <button id = "newGame" class="actionBtns">NEW GAME</button>
+    </section>
 </body>
 </html>

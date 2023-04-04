@@ -1,0 +1,13 @@
+body {
+    background-image: radial-gradient(white, #124d2f);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vmin;
+    display: flex;
+    flex-direction: column;
+}
+.actionBtns {
+    display: block;
+    width: 50px;
+}
