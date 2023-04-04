@@ -1,13 +1,46 @@
 body {
+    margin:0;
     background-image: radial-gradient(white, #124d2f);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 100vmin;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 70px 0fr 30px;
+    justify-content: center;
+    gap: 5px;
+}
+header {
     display: flex;
-    flex-direction: column;
+    background-color: yellow;
+    grid-column: span 2;
+}
+img {
+    height: 150px;
+    width: 100px;
+}
+#dealer {
+    display: flex;
+    background-color: pink;
+    align-items: center;
+    grid-column: span 2;
+    height: fit-content;
+}
+#player {
+    background-color: lightblue;
+    height:fit-content;
+}
+#buttons {
+    background-color: lightsalmon;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
 }
 .actionBtns {
     display: block;
-    width: 50px;
+    width: 75px;
+    height: 35px;
+    margin: 3px;
 }

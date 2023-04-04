@@ -22,3 +22,7 @@ c) dealerHand < 22, && >16 , compare dealerHand to playerHand, and whichever is 
 d)      (part I) dealerHand <17 invoke the dealerHits( ) function, where shuffled cards will be dealt to the dealer.
           (part II) at each cardDealt to the dealer, it will compare whether dealerHand is still <21. If it is greater than 21, break and message out "Player WINS", else if dealerCurrentHand > playerHand && <21, "Dealer Wins!"
 Once winner is determined, the [HIT] and [STAY] buttons will disappear, and the [NEW GAME} button will be visible.
+
+
+used card images from website: https://opengameart.org/content/playing-cards-vector-png
+used shuffle logic from website: https://stackoverflow.com/questions/73603123/function-for-shuffling-a-deck-of-cards-js
