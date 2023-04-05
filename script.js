@@ -47,13 +47,46 @@
   };
 
   function hit() {
-    alert("you Hit")
+    //player gets another card, call getCard()?
+    playerHand += getCard('playerCards');
+    //card is added to playerTotal and value is compared // another compare() ?
+     //if playerTotal===21 message "player wins"
+    if (playerHand === 21) {
+      alert('You got Blackjack Babyyy!!')
+    } else if (playerHand > 21) { //else if playerTotal > 21 message "dealer wins"
+      alert('Too High, dealer WINS!')
+    }
   };
   function stay() {
-    alert("you stood")
+    //backImg disables
+    document.getElementById('backImg').style.visibility = "hidden";
+    //hit button inactivates/disabled
+    //dealerHand is updated with a getCard()
+    dealerHand += getCard('dealerCards');
+    //dealerHand is compared
+          //if (dealerHand === 21) "dealer wins!"
+          //else if (dealerHand > 21) "too high, player wins"
+          // else if (dealerHand >= 17) compare();
+          // else repeat
+      while (dealerHand < 22) {
+      if (dealerHand === 21) {
+        alert("Blackjack for the dealer!")
+      } else if (dealerHand >= 17) {
+        if (dealerHand > playerHand) {
+          alert("Dealer Wins") 
+        } else {
+            alert("Player Wins!")
+          }
+        }
+      }
   };
   function newGame() {
+    dealerHand = getCard('dealerCards');
     playerHand = getCard('playerCards') + getCard('playerCards');
     let ngBtnVis = document.getElementById('newGame');
     ngBtnVis.style.visibility = 'hidden';
+    if (playerHand === 21) {
+      alert("Blackjack babyyyy")
+      //RESTRAT NEW GAME, write new function or new render???
+    };
   };
