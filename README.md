@@ -26,3 +26,5 @@ Once winner is determined, the [HIT] and [STAY] buttons will disappear, and the 
 
 used card images from website: https://opengameart.org/content/playing-cards-vector-png
 used shuffle logic from website: https://stackoverflow.com/questions/73603123/function-for-shuffling-a-deck-of-cards-js
+created img DOM element: https://www.w3schools.com/jsref/dom_obj_image.asp
+
