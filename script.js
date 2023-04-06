@@ -67,18 +67,27 @@
           //if (dealerHand === 21) "dealer wins!"
           //else if (dealerHand > 21) "too high, player wins"
           // else if (dealerHand >= 17) compare();
-          // else repeat
-      while (dealerHand < 22) {
-      if (dealerHand === 21) {
-        alert("Blackjack for the dealer!")
-      } else if (dealerHand >= 17) {
-        if (dealerHand > playerHand) {
-          alert("Dealer Wins") 
-        } else {
-            alert("Player Wins!")
-          }
+          // else repeat getCard();
+
+
+          
+    if (dealerHand === 21) {
+      alert("Blackjack for the dealer!")
+    } else if (dealerHand >= 17) {
+      if (dealerHand > playerHand) {
+        alert("Dealer Wins") 
+      } else {
+          alert("Player Wins!")
         }
+      } else {
+        do { dealerHand += getCard('dealerCards');
+        } while (dealerHand < 22)
       }
+
+
+
+
+
   };
   function newGame() {
     dealerHand = getCard('dealerCards');
