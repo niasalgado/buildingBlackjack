@@ -36,7 +36,7 @@
     let cardVal = cardIdx[0];
 
     let cardImg = document.createElement("img")
-    cardImg.src = ("/cards/" + cards[randIdx] + ".png")
+    cardImg.src = ("/card-images/" + cards[randIdx] + ".png")
     document.getElementById(cardDispEl).appendChild(cardImg);
 
     if (cardVal === 'a') {
@@ -52,14 +52,15 @@
     //card is added to playerTotal and value is compared // another compare() ?
      //if playerTotal===21 message "player wins"
     if (playerHand === 21) {
-      alert('You got Blackjack Babyyy!!')
+      winMsg('Blackjack babyyy! You ')
     } else if (playerHand > 21) { //else if playerTotal > 21 message "dealer wins"
-      alert('Too High, dealer WINS!')
+      winMsg('Your hand is too high, dealer ')
     }
   };
+
   function stay() {
     //backImg disables
-    document.getElementById('backImg').style.visibility = "hidden";
+    document.getElementById('backImg').style.visibility = 'hidden';
     //hit button inactivates/disabled
     //dealerHand is updated with a getCard()
     dealerHand += getCard('dealerCards');
@@ -67,35 +68,48 @@
           //if (dealerHand === 21) "dealer wins!"
           //else if (dealerHand > 21) "too high, player wins"
           // else if (dealerHand >= 17) compare();
-          // else repeat getCard();
-
-
-          
+          // else repeat getCard();      
     if (dealerHand === 21) {
-      alert("Blackjack for the dealer!")
-    } else if (dealerHand >= 17) {
-      if (dealerHand > playerHand) {
-        alert("Dealer Wins") 
-      } else {
-          alert("Player Wins!")
-        }
-      } else {
-        do { dealerHand += getCard('dealerCards');
-        } while (dealerHand < 22)
-      }
-
-
-
-
-
+      return winMsg('dealer got blackjack. dealer ');
+    } else if (dealerHand >= 17 && dealerHand < 21) {
+      compareHand(playerHand, dealerHand)
+    }
+    // else {
+    //   for (let i=0; dealerHand < 22; i++) { 
+    //     setTimeout(() => {
+    //     dealerHand += getCard('dealerCards');
+    //   }, 500);
+    //     if (dealerHand === 21) {
+    //        return winMsg("Dealer got Blackjack. Dealer ");
+    //     } else if (dealerHand > playerHand) {
+    //       return winMsg("Dealer ");
+    //     }
+    //   } 
+    // }
   };
+
   function newGame() {
     dealerHand = getCard('dealerCards');
     playerHand = getCard('playerCards') + getCard('playerCards');
     let ngBtnVis = document.getElementById('newGame');
     ngBtnVis.style.visibility = 'hidden';
+    document.getElementById('backImg').style.visibility = 'visible';
     if (playerHand === 21) {
-      alert("Blackjack babyyyy")
-      //RESTRAT NEW GAME, write new function or new render???
+      winMsg('Blackjack babyyy! Player ')
     };
+  };
+
+  function compareHand(player, dealer) {
+    if (dealer > player) {
+      return winMsg('dealer ') ;
+    } else if (player > dealer) {
+      return winMsg('player ');
+      }
+    };
+
+  function winMsg(winner) {
+    setTimeout(() => {
+      alert(winner + "wins!");
+    }, 500);
+    //RESTART GAME FUNCTION HEREEEEEEEE after winner is determined!!
   };
