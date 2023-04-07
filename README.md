@@ -9,5 +9,10 @@ Getting Started: https://niasalgado.github.io/buildingBlackjack/ Please click th
 Next Steps: I'd like to display the player and dealer's current scores as they are updating during the game, and implememt respnsive design.
 
 Resources Used:
-used card images from website: https://opengameart.org/content/playing-cards-vector-png
-sourced shuffle logic from website: https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript\
+Used card images from website: https://opengameart.org/content/playing-cards-vector-png
+
+Sourced shuffle logic from website: https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript\
+
+Referenced DOM element syntax/logic from our Connect 4 Code-Along: https://git.generalassemb.ly/SEI-Adobe-0320/Connect-4-Codealong
+
+Followed Build-a-Game logic: https://www.notion.so/Guide-to-Building-a-Game-07593e3efd354532ac094b0345dafa98?pvs=4
