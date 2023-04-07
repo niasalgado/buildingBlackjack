@@ -46,7 +46,7 @@
 
   function hit() {
     playerHand += getCard('playerCards');
-    
+
     if (playerHand === 21) {
       winMsg('Woohoo! You got blackjack! Player ')
     } else if (playerHand > 21) {
@@ -73,7 +73,7 @@
 
   function newGame() {
     let cardImg = document.createElement("img");
-    cardImg.src = ("/card-images/backCard.png");
+    cardImg.src = ("card-images/backCard.png");
     dealerEl.appendChild(cardImg);
 
     dealerHand = getCard('dealerCards');
@@ -107,5 +107,5 @@
     //Reloads window after winner announcement is displayed
     setTimeout(() => {
       window.location.reload();
-    }, 5000);
+    }, 4000);
   };
