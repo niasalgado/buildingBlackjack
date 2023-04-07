@@ -66,8 +66,8 @@
     } else if (dealerHand < 17) {
       while (dealerHand < 17) {
         dealerHand += getCard('dealerCards');
-        compareHand(playerHand, dealerHand);
       }
+      compareHand(playerHand, dealerHand);
     }
   };     
 
@@ -95,6 +95,8 @@
       return winMsg('Dealer ');
     } else if (player > dealer) {
       return winMsg('Player ');
+    } else if (dealer === player) {
+      return winMsg('Push. No one ')
     }
   };
 
