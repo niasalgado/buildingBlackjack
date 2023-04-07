@@ -73,7 +73,7 @@
 
   function newGame() {
     let cardImg = document.createElement("img");
-    cardImg.src = ("card-images/2-c.png");
+    cardImg.src = ("card-images/backCard.png");
     dealerEl.appendChild(cardImg);
 
     dealerHand = getCard('dealerCards');
