@@ -7,9 +7,7 @@
   /*----- state variables -----*/
   let playerHand;
   let dealerHand;
-
   let wager;
-  
 
   /*----- cached elements  -----*/
   const dealerEl = document.getElementById('dealerCards');
@@ -22,12 +20,10 @@
 
   let ngBtn = document.getElementById('newGame');
 
-
   /*----- event listeners -----*/
   stayBtn.addEventListener('click', stay);
   hitBtn.addEventListener('click', hit);
   ngBtn.addEventListener('click', newGame);
-
 
   /*----- functions -----*/
   function getCard(cardDispEl) {
@@ -36,7 +32,7 @@
     let cardVal = cardIdx[0];
 
     let cardImg = document.createElement("img");
-    cardImg.src = ("/card-images/" + cards[randIdx] + ".png")
+    cardImg.src = ("card-images/" + cards[randIdx] + ".png")
     document.getElementById(cardDispEl).appendChild(cardImg);
 
     cards.splice(randIdx, 1);
@@ -50,19 +46,21 @@
 
   function hit() {
     playerHand += getCard('playerCards');
+    
     if (playerHand === 21) {
-      winMsg('Blackjack babyyy! You ')
+      winMsg('Woohoo! You got blackjack! Player ')
     } else if (playerHand > 21) {
-      winMsg('Your hand is too high, dealer ')
+      winMsg('You busted. Dealer ')
     }
   };
 
   function stay() {
     dealerEl.removeChild(dealerEl.firstElementChild);
     hitBtn.disabled = true;
-    dealerHand += getCard('dealerCards'); 
+    dealerHand += getCard('dealerCards');
+
     if (dealerHand === 21) {
-      return winMsg('dealer got blackjack. dealer ');
+      return winMsg('Dealer got Blackjack. Dealer ');
     } else if (dealerHand >= 17 && dealerHand < 21) {
       compareHand(playerHand, dealerHand)
     } else if (dealerHand < 17) {
@@ -86,17 +84,17 @@
     stayBtn.disabled = false;
     
     if (playerHand === 21) {
-      winMsg('Blackjack babyyy! Player ')
+      winMsg('Woohoo! You got Blackjack! Player ')
     };
   };
 
   function compareHand(player, dealer) {
     if (dealer > 21) {
-      return winMsg('dealer hand too high. player ')
+      return winMsg("Dealer busts. Player ")
     } else if (dealer > player) {
-      return winMsg('dealer ') ;
+      return winMsg('Dealer ');
     } else if (player > dealer) {
-      return winMsg('player ');
+      return winMsg('Player ');
     }
   };
 

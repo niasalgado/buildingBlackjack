@@ -1,32 +1,13 @@
+I am building the famous casino game Blackjack. The simplified version of blackjack is you (the player) and the dealer are each dealt two cards to start. You will either chose to be dealt another card, or stay with your cards, with the goal of having a hand totaling 21, or closer to 21 than the dealer, without actually going over 21.
 
-1. player clicks [NEW GAME] button -- atp no other buttons are displayed
-2. [HIT], [STAY] buttons now display
-3. Dealer gets their hand (up to 17)
-    !!!! ELABORATE OF DEALERHAND LOGIC MORE !!!!
-4. Player gets their first card and will click [HIT]
-5. After every [HIT] click, player is given a new card and their playerHand is being updated until they click [STAY] OR until their playerHand >= 21 
-6. If palyerHand === 21, break and display "Player Wins!"
-7. Else If/Once [STAY] is chosen, call the compareHands() function
-8. comapreHands() function compares whether dealerHand or playerHand is closer to 21
-9. Display "Player/Dealer Wins!" depending on whover is closer to 21
-10. Start over with [NEW GAME] button
+jackblack.png
 
+Technologies used: HTML5, CSS3 and Javascript
 
-Game Logic/Pseudocode:
-I'll start with showing the player's first two cards, and  showing the dealer's hand, one card facing up, one card facing down.
-From there the player will decide whether to [HIT] or [STAY]. Each option will be a button attached to an event listener calling the next function. The [HIT] button will add a card to the player's hand until either the player clicks the [STAY] button or the playerHand >21, to which the game loop will break and a message will display of that "Dealer Wins".
-the [STAY] button will invoke the dealerHand function( ), where the second dealer card will flip over and be analyzed. If:
-a) the dealerHand >21, "Player WINS"
-b) the dealerHand === 21, "Dealer WINS!"
-c) dealerHand < 22, && >16 , compare dealerHand to playerHand, and whichever is closest to 21 wins
-d)      (part I) dealerHand <17 invoke the dealerHits( ) function, where shuffled cards will be dealt to the dealer.
-          (part II) at each cardDealt to the dealer, it will compare whether dealerHand is still <21. If it is greater than 21, break and message out "Player WINS", else if dealerCurrentHand > playerHand && <21, "Dealer Wins!"
-Once winner is determined, the [HIT] and [STAY] buttons will disappear, and the [NEW GAME] button will be visible.
+Getting Started: https://niasalgado.github.io/buildingBlackjack/ Please click the button "New Game" to start. Good luck :)
 
+Next Steps: I'd like to display the player and dealer's current scores as they are updating during the game, and implememt respnsive design.
 
+Resources Used:
 used card images from website: https://opengameart.org/content/playing-cards-vector-png
-
-
-used shuffle logic from website: https://stackoverflow.com/questions/73603123/function-for-shuffling-a-deck-of-cards-js
-&
-https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+sourced shuffle logic from website: https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript\
