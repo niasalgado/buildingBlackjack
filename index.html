@@ -6,25 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <!-- <link rel="stylesheet" href="/card-deck/css/cardstarter.css">
-    <link rel="stylesheet" href="/card-deck/css/cardstarter.min.css"> -->
     <title>BlackJack</title>
 </head>
 
 <body>
     <header><h1>Blackjack</h1></header>
+    <h2 id="winningMsg"></h2>
     
     <section id="dealer">
-        Dealer's Hand:
+        <p>Dealer's Hand: <span id="dScore"></span></p>
         <div id="dealerCards"> 
-            <img id="backImg" src="/card-images/backCard.png">
             <!--dealer cards will be appended into here-->
         </div>
     </section>   
 
     
     <section id="player">
-        Your Hand:
+        <p>Your Hand:  <span id="pScore"></span></p>
         <div id="playerCards">
             <!--player cards will be appended into here-->
         </div>

@@ -12,104 +12,102 @@
   
 
   /*----- cached elements  -----*/
+  const dealerEl = document.getElementById('dealerCards');
+
+  let stayBtn = document.getElementById('stay');
+  stayBtn.setAttribute("disabled", "");
+
+  let hitBtn = document.getElementById('hit');
+  hitBtn.setAttribute("disabled", "");
+
+  let ngBtn = document.getElementById('newGame');
 
 
   /*----- event listeners -----*/
-  document.getElementById('stay').addEventListener('click', stay)
-  document.getElementById('hit').addEventListener('click', hit)
-  document.getElementById('newGame').addEventListener('click', newGame)
+  stayBtn.addEventListener('click', stay);
+  hitBtn.addEventListener('click', hit);
+  ngBtn.addEventListener('click', newGame);
 
 
   /*----- functions -----*/
-  function shuffleCards() {
-    for (let i = 0; i < cards.length; i++) {
-      let shuffle = Math.floor(Math.random() * cards.length);
-      let temp = cards[i];
-      cards[i] = cards[shuffle];
-      cards[shuffle] = temp;
-    } 
-  };
-
   function getCard(cardDispEl) {
-    let randIdx = Math.floor(Math.random() * cards.length); // use this Rand to also generate img
+    let randIdx = Math.floor(Math.random() * cards.length);
     let cardIdx = cards[randIdx].split("-");
     let cardVal = cardIdx[0];
 
-    let cardImg = document.createElement("img")
+    let cardImg = document.createElement("img");
     cardImg.src = ("/card-images/" + cards[randIdx] + ".png")
     document.getElementById(cardDispEl).appendChild(cardImg);
 
+    cards.splice(randIdx, 1);
+    
     if (cardVal === 'a') {
-      return 11
+      return 11;
     } else if (cardVal === 'j' || cardVal === 'k' || cardVal === 'q') {
-      return 10
-    } return parseInt(cardVal) 
+      return 10;
+    } return parseInt(cardVal);
   };
 
   function hit() {
-    //player gets another card, call getCard()?
     playerHand += getCard('playerCards');
-    //card is added to playerTotal and value is compared // another compare() ?
-     //if playerTotal===21 message "player wins"
     if (playerHand === 21) {
       winMsg('Blackjack babyyy! You ')
-    } else if (playerHand > 21) { //else if playerTotal > 21 message "dealer wins"
+    } else if (playerHand > 21) {
       winMsg('Your hand is too high, dealer ')
     }
   };
 
   function stay() {
-    //backImg disables
-    document.getElementById('backImg').style.visibility = 'hidden';
-    //hit button inactivates/disabled
-    //dealerHand is updated with a getCard()
-    dealerHand += getCard('dealerCards');
-    //dealerHand is compared
-          //if (dealerHand === 21) "dealer wins!"
-          //else if (dealerHand > 21) "too high, player wins"
-          // else if (dealerHand >= 17) compare();
-          // else repeat getCard();      
+    dealerEl.removeChild(dealerEl.firstElementChild);
+    hitBtn.disabled = true;
+    dealerHand += getCard('dealerCards'); 
     if (dealerHand === 21) {
       return winMsg('dealer got blackjack. dealer ');
     } else if (dealerHand >= 17 && dealerHand < 21) {
       compareHand(playerHand, dealerHand)
+    } else if (dealerHand < 17) {
+      while (dealerHand < 17) {
+        dealerHand += getCard('dealerCards');
+        compareHand(playerHand, dealerHand);
+      }
     }
-    // else {
-    //   for (let i=0; dealerHand < 22; i++) { 
-    //     setTimeout(() => {
-    //     dealerHand += getCard('dealerCards');
-    //   }, 500);
-    //     if (dealerHand === 21) {
-    //        return winMsg("Dealer got Blackjack. Dealer ");
-    //     } else if (dealerHand > playerHand) {
-    //       return winMsg("Dealer ");
-    //     }
-    //   } 
-    // }
-  };
+  };     
 
   function newGame() {
+    let cardImg = document.createElement("img");
+    cardImg.src = ("/card-images/backCard.png");
+    dealerEl.appendChild(cardImg);
+
     dealerHand = getCard('dealerCards');
     playerHand = getCard('playerCards') + getCard('playerCards');
-    let ngBtnVis = document.getElementById('newGame');
-    ngBtnVis.style.visibility = 'hidden';
-    document.getElementById('backImg').style.visibility = 'visible';
+
+    ngBtn.style.visibility = 'hidden';
+    hitBtn.disabled = false;
+    stayBtn.disabled = false;
+    
     if (playerHand === 21) {
       winMsg('Blackjack babyyy! Player ')
     };
   };
 
   function compareHand(player, dealer) {
-    if (dealer > player) {
+    if (dealer > 21) {
+      return winMsg('dealer hand too high. player ')
+    } else if (dealer > player) {
       return winMsg('dealer ') ;
     } else if (player > dealer) {
       return winMsg('player ');
-      }
-    };
+    }
+  };
 
   function winMsg(winner) {
+    stayBtn.disabled = true;
+    hitBtn.disabled = true;
     setTimeout(() => {
-      alert(winner + "wins!");
-    }, 500);
-    //RESTART GAME FUNCTION HEREEEEEEEE after winner is determined!!
+      document.getElementById('winningMsg').innerText = `${winner} wins!`;
+    }, 800);
+    //Reloads window after winner announcement is displayed
+    setTimeout(() => {
+      window.location.reload();
+    }, 5000);
   };
